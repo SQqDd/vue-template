@@ -1,0 +1,28 @@
+{
+	"name": "vue-template",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "webpack-dev-server --open --mode development",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"css-loader": "^5.0.1",
+		"html-webpack-plugin": "^4.5.0",
+		"less-loader": "^7.1.0",
+		"open-browser-webpack-plugin": "0.0.5",
+		"style-loader": "^2.0.0",
+		"vue-loader": "^15.9.5",
+		"vue-template-compiler": "^2.6.12",
+		"webpack": "^4.44.2",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.11.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SQqDd/vue-template.git"
+	}
+}
