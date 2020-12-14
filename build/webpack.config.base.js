@@ -21,7 +21,8 @@ const baseWebpackConfig = {
 
   output: {
     path: join('dist'),
-    filename: 'bundle.[hash:6].js'
+    filename: 'assets/js/bundle.[hash:6].js',
+    chunkFilename: 'assets/js/[id].[hash:6].js'
   },
 
   plugins: [
