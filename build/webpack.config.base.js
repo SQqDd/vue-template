@@ -46,6 +46,12 @@ const baseWebpackConfig = {
         use: ['vue-loader']
       }
     ]
+  },
+
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    }
   }
 }
 

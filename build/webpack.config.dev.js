@@ -42,12 +42,13 @@ const devWebpackConfig = {
     hotOnly: true,
     stats: 'errors-only',
     clientLogLevel: "silent",
+    historyApiFallback: true, // 使用 HTML 5 History 的时候要开启
     proxy: {
       '/api': {
         target: 'https://api.github.com',
-        pathRewrite: {
-          '^/api': ''
-        },
+        // pathRewrite: {
+        //   '^/api': '/api'
+        // },
         changeOrigin: true
       }
     }
