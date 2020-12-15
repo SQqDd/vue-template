@@ -12,14 +12,15 @@ vue-template
 │   ├── dev.env.js                        // 开发环境 process.env 变量配置
 │   ├── prod.env.js                       // 生产环境 process.env 变量配置
 ├── dist                                  // 打包后目录
-├── package-lock.json
-├── package.json
+├── package-lock.json                     // npm 依赖 lock 文件
+├── package.json                          // npm 项目文件
+├── .gitignore                            // git 忽略配置文件
 ├── public
 │   └── index.html                        // 模板 index.html
-├── src
+├── src                                   // 源代码目录
 │   ├── App.vue
 │   ├── assets                            // 资源文件
 │   ├── components                        // 公共组件
-│   ├── index.js                          // 入口文件
+│   ├── main.js                           // 入口文件
 │   └── utils                             // 公共方法
 ```

@@ -5,6 +5,7 @@ const baseWebpackConfig = require('./webpack.config.base')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
 const smp = new SpeedMeasureWebpackPlugin()
@@ -18,6 +19,7 @@ const prodWebpackConfig = {
   devtool: 'nosources-source-map',
 
   plugins: [
+    new MiniCssExtractPlugin(),
     new OptimizeCssAssetsWebpackPlugin(),
     new webpack.DllReferencePlugin({
       manifest: path.resolve(__dirname, '../dist/dll/manifest.json')
@@ -34,9 +36,27 @@ const prodWebpackConfig = {
     })
   ],
 
-  module: {}
+  module: {
+    rules: [
+      {
+        test: /\.(css|sass|scss)/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins: [
+                ["autoprefixer", {}]
+              ]
+            }
+          }
+        }, 'sass-loader']
+      },
+    ]
+  }
 }
 
 module.exports = merge(baseWebpackConfig, prodWebpackConfig)
 
+// SpeedMeasureWebpackPlugin 不能与 AddAssetHtmlWebpackPlugin 同时使用
 // module.exports = smp.wrap(merge(baseWebpackConfig, prodWebpackConfig))

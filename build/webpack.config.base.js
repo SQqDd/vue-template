@@ -17,7 +17,7 @@ function join(dir) {
 const baseWebpackConfig = {
   mode: 'production',
 
-  entry: './src/index.js',
+  entry: './src/main.js',
 
   output: {
     path: join('dist'),

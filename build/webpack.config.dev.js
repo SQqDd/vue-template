@@ -13,10 +13,15 @@ function join(dir) {
 const devWebpackConfig = {
   mode: 'development',
 
-  devtool: 'cheap-module-eval-source-map',
+  // devtool: 'cheap-module-eval-source-map',
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.EvalSourceMapDevToolPlugin({
+      exclude: /node_modules/, // 等同于 cheap-module-eval-source-map，排除掉第三方依赖，加快开发构建速度
+      module: true, // 默认为 true
+      columns: false
+    }),
     new HtmlWebpackPlugin({
       template: join('public/index.html'),
       filename: 'index.html',

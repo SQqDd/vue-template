@@ -49,7 +49,7 @@ module.exports = {
       {
         test: /\.(css|sass|scss)/,
         exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', {
+        use: ['style-loader', 'css-loader', {
           loader: 'postcss-loader',
           options: {
             postcssOptions: {
